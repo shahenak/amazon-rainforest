@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
 
-  root 'products#index'
+#resources is a method. line 7: two parameters are passed in. 1st is symbol called products. second is hash with only as the key and an array of symbols as the value
 
-  resources :products 
+  root 'products#index'
+  resources :products do
+    resources :reviews, only: [:show, :create, :destroy, :edit, :update]
+  end
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  get '/about' => 'about#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

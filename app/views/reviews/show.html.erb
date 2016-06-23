@@ -1,0 +1,8 @@
+<h1>Review for <%= @product.name %></h1>
+  <p>
+    <%= @review.comment %><br>
+    <% if @review.user !=nil %>
+      <em> by <%= @review.user.name %></em>
+      Added on: <%= @review.created_at %>
+    <% end %>
+  </p>
